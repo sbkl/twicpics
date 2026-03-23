@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "serve": "$npm_execpath install && expo start --dev-client --port 80",
+    "serve": "bun install && expo start --dev-client --port 80",
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",

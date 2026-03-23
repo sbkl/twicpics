@@ -18,7 +18,7 @@
     "license": "MIT",
     "scripts": {
         "copy": "node copySample.mjs ",
-        "dev": "$npm_execpath install && $npm_execpath run copy && next -p 3000",
-        "serve": "$npm_execpath install && $npm_execpath run copy && next build && next start"
+        "dev": "bun install && bun run copy && next -p 3000",
+        "serve": "bun install && bun run copy && next build && next start"
     }
 }

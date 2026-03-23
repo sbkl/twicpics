@@ -84,13 +84,12 @@
     },
     "license": "MIT",
     "scripts": {
-        "build": "$npm_execpath install && node build",
+        "build": "bun install && node build",
         "lint": "eslint .",
         "postinstall": "node build/postinstall.js",
         "test:common": "node tests/common/preTests.js && vitest run tests/common/tmp; node tests/common/postTests.js",
         "test:ui": "node tests/ui",
-        "test": "$npm_execpath run test:common && $npm_execpath run test:ui"
+        "test": "bun run test:common && bun run test:ui"
     },
-    "type": "module",
-    "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
+    "type": "module"
 }

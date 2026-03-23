@@ -14,8 +14,8 @@
     },
     "license": "MIT",
     "scripts": {
-        "build": "$npm_execpath install && next export",
-        "dev": "$npm_execpath install && next -p 3000",
-        "serve": "$npm_execpath install && next build && next start -p 3000"
+        "build": "bun install && next export",
+        "dev": "bun install && next -p 3000",
+        "serve": "bun install && next build && next start -p 3000"
     }
 }

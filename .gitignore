@@ -10,6 +10,8 @@
 /samples/**/.nuxt
 /samples/**/build
 /samples/**/package-lock.json
+/samples/**/bun.lock
+/samples/**/bun.lockb
 /samples/**/yarn.lock
 /samples/angular*/**/app.component.html
 /samples/gatsby/public
@@ -33,8 +35,9 @@
 .vscode
 package/
 package-lock.json
+bun.lock
+bun.lockb
 yarn.lock
-!/yarn.lock
 dist
 node_modules
 

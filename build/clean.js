@@ -4,7 +4,7 @@ import { readdir, rm, stat } from "fs/promises";
 
 const toDelete = new Set( [
     `.angular`, `.cache`, `.expo`, `.next`, `.nuxt`, `.svelte-kit`, `build`, `dist`, `node_modules`,
-    `package-lock.json`, `yarn.lock`,
+    `package-lock.json`, `yarn.lock`, `bun.lockb`, `bun.lock`,
 ] );
 
 const deleteForce = async path => {

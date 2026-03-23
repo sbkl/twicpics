@@ -29,14 +29,14 @@ await Promise.all( getFrameworks( FRAMEWORK_FILTERS ).map( async ( unit ) => {
     console.log( `Starting ${ framework} on port ${ port }.` );
 
     await new Promise( ( resolve, reject ) => {
-        exec( `cd ${ __dirname }/${ framework } && $npm_execpath install`, ( err, stderr ) => {
+        exec( `cd ${ __dirname }/${ framework } && bun install`, ( err, stderr ) => {
             if ( err ) {
                 console.error( `Error installing dependencies for ${ framework }:`, stderr );
                 return reject( err );
             }
 
             const server = spawn(
-                `$npm_execpath`,
+                `bun`,
                 ['serve', '--port', port],
                 {
                     cwd: `${ __dirname }/${ framework }`,
