@@ -263,27 +263,6 @@ export const parseSrc = ( value: string ): string => {
 
 export const parseStep = parseNumber;
 
-export const parseStyle = (
-    value: Record< string, unknown > | string | undefined
-): Record< string, unknown > => {
-    if ( !value ) {
-        return {};
-    }
-    if ( typeof value === `string` ) {
-        return value.split( `;` ).reduce( ( parsedStyle: Record< string, unknown >, item ) => {
-            const [ key, _value ] = item
-                .split( `:` )
-                .map( s => s && s.trim() );
-            if ( key && _value ) {
-                // eslint-disable-next-line no-param-reassign
-                parsedStyle[ key ] = _value;
-            }
-            return parsedStyle;
-        }, {} );
-    }
-    return value;
-};
-
 export const parseTo = parseNumber;
 
 export const parseTitle = ( value: string ): string => value && value.trim();

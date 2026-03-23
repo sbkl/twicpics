@@ -1,29 +1,19 @@
 {
-    "author": "TwicPics <hello@twic.pics> (https://www.twicpics.com)",
-    "bugs": {
-        "url": "https://github.com/twicpics/components/issues"
-    },
-    "description": "A Web component library that brings the power of TwicPics to your favorite web framework.",
-    "homepage": "https://github.com/twicpics/components",
+    "author": "sbkl",
+    "description": "TwicPics components for React, React Native, and Next.js.",
     "keywords": [
-        "angular",
-        "component library",
-        "gatsby js",
         "next js",
-        "nuxt js",
         "react",
+        "react native",
+        "expo",
         "responsive image",
-        "svelte",
-        "sveltekit",
-        "twicpics",
-        "ui library",
-        "vue js"
+        "twicpics"
     ],
     "license": "MIT",
-    "name": "@twicpics/components",
+    "name": "@sbkl/twicpics",
     "repository": {
         "type": "git",
-        "url": "git://github.com/twicpics/components.git"
+        "url": "git://github.com/sbkl/twicpics.git"
     },
     "version": "0.33.0"
 }

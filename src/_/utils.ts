@@ -2,21 +2,6 @@ declare const FRAMEWORK: string;
 
 const buildErrorMessage = ( message: string ): string => `twicpics-components ${ message }`;
 
-const mappingBoolean: { [ key: string ]: boolean; } = {
-    "true": true,
-    "false": false,
-    "": true,
-};
-export const convertToBoolean = ( value: boolean | string ): boolean => {
-    if ( typeof value === `boolean` ) {
-        return value;
-    }
-    if ( value === undefined ) {
-        return false;
-    }
-    return mappingBoolean[ value.trim() ] ?? undefined;
-};
-
 export interface DebounceOptions {
     leading?: boolean;
     ms?: number;
@@ -54,13 +39,7 @@ export const debounce = ( fn: ( ...args:any[] ) => void, options: DebounceOption
 
 export const isReact = ( FRAMEWORK === `react` );
 export const isReactNative = ( FRAMEWORK === `react-native` );
-export const isWebComponents = ( FRAMEWORK === `webcomponents` );
-export const isBrowser = isWebComponents || ( typeof document !== `undefined` );
-
-export const logError = ( message: string ): void => {
-    // eslint-disable-next-line no-console
-    console.error( buildErrorMessage( message ) );
-};
+export const isBrowser = ( typeof document !== `undefined` );
 
 export const logWarning = ( message: string ): void => {
     // eslint-disable-next-line no-console

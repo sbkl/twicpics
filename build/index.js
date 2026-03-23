@@ -6,15 +6,6 @@ import { copy, remove } from "fs-extra";
 import { readFile, writeFile } from "fs/promises";
 import rollup from "./rollup.js";
 import units from "./units.js";
-import {
-    buildComponents as buildAngularComponents,
-    exportsPackageJson as exportsAngularPackageJson,
-
-} from "./angular/builder.js";
-import {
-    buildComponents as buildSveltekitComponents,
-    exportsPackageJson as exportsSveltekitPackageJson,
-} from "./sveltekit/builder.js";
 
 import { getJsonFromPath, writeJson } from "./json.js";
 import { formats, getFormatInfo } from "./formats.js";
@@ -82,40 +73,21 @@ await Promise.all( units.map( async unit => {
 } ) );
 
 console.log( `de-duplicating css..` );
-await copy( `${ __dirname }/../dist/${ units[ 0 ].framework }/style.css`, `${ __dirname }/../dist/style.css` );
+const firstCssUnit = units.find( u => u.bundleCss !== false );
+if ( firstCssUnit ) {
+    await copy( `${ __dirname }/../dist/${ firstCssUnit.framework }/style.css`, `${ __dirname }/../dist/style.css` );
+}
 await Promise.all( units.map(
     ( { framework } ) => remove( `${ __dirname }/../dist/${ framework }/style.css` ).catch( () => undefined )
 ) );
-
-try {
-    await buildAngularComponents();
-    console.log( `angular components generated` );
-} catch ( error ) {
-    console.error( `angular components generation error:`, error );
-}
-
-try {
-    await buildSveltekitComponents();
-    console.log( `sveltekit components generated` );
-} catch ( error ) {
-    console.error( `sveltekit components generation error:`, error );
-}
 
 console.log( `generating package.json with mappings...` );
 const packageJSON = await getJsonFromPath( `${ __dirname }/package.template.json` );
 packageJSON.exports = Object.fromEntries( [
     [ `./style.css`, `./style.css` ],
     ...exportsPackageJson(),
-    ...await exportsAngularPackageJson(),
-    ...exportsSveltekitPackageJson(),
 ] );
 await writeJson( `${ __dirname }/../dist/package.json`, packageJSON );
-
-console.log( `adding README.md...` );
-await writeFile(
-    `${ __dirname }/../dist/README.md`,
-    await readFile( `${ __dirname }/../documentation/README.md` )
-);
 
 console.log( `adding LICENSE...` );
 await writeFile(
