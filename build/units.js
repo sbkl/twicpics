@@ -10,7 +10,7 @@ export default [
     {
         "bundleCss": false,
         "external": [
-            `expo-av`,
+            `expo-video`,
             `expo-image`,
             `react`,
             `react-dom`,

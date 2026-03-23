@@ -3,17 +3,18 @@ import { logWarning } from '../_/utils';
 
 type Expo = {
     Image?: unknown;
-    Video?: unknown;
+    VideoView?: unknown;
+    useVideoPlayer?: unknown;
 }
 type Module = `Image` | `Video`;
 
 const messageConfig: Record< Module, string > = {
     "Image":
         // eslint-disable-next-line max-len
-        `Image Caching requires 'expo' and 'expo-image' dependencies. For more information, refer to the documentation: https://www.twicpics.com/docs/components/react-native`,
+        `Image Caching requires 'expo' and 'expo-image' dependencies.`,
     "Video":
         // eslint-disable-next-line max-len
-        `TwicVideo requires 'expo' and 'expo-av' dependencies. For more information, refer to the documentation: https://www.twicpics.com/docs/components/react-native`,
+        `TwicVideo requires 'expo' and 'expo-video' dependencies.`,
 };
 
 /**
@@ -22,26 +23,24 @@ const messageConfig: Record< Module, string > = {
 const _expo: Expo = {};
 
 /**
- * requires optional `expo-av`
- * this can be `expo-av` but also `expo-image` if `expo-av` is not installed
+ * requires optional `expo-video`
  */
-const requireExpoAv = ( module: Module ) => {
-    try {
-        // eslint-disable-next-line no-undef, @typescript-eslint/no-var-requires, no-shadow
-        const { Image, Video } = require( `expo-av` );
-        _expo.Video = Video || ( module === `Video` ? null : Video );
-        _expo.Image = Image;
-    } catch {
-        // if there is no `expo-av,` we should have found `expo-image` instead
-        // as it is not the case, it means that there is no `expo-image` either
-        _expo.Image = module === `Image` ? null : undefined;
-        _expo.Video = module === `Video` ? null : undefined;
+const requireExpoVideo = ( module: Module ) => {
+    if ( ( module === `Video` ) && ( _expo.VideoView === undefined ) ) {
+        try {
+            // eslint-disable-next-line no-undef, @typescript-eslint/no-var-requires
+            const expoVideo = require( `expo-video` );
+            _expo.VideoView = expoVideo.VideoView;
+            _expo.useVideoPlayer = expoVideo.useVideoPlayer;
+        } catch {
+            _expo.VideoView = null;
+            _expo.useVideoPlayer = null;
+        }
     }
 };
 
 /**
  * requires optional `expo-image`
- * this can only be `expo-image`
  */
 const requireExpoImage = ( module: Module ) => {
     if ( ( module === `Image` ) && ( _expo.Image === undefined ) ) {
@@ -58,16 +57,17 @@ const requireExpoImage = ( module: Module ) => {
 export default ( module: Module ) => {
     const [ expo, setExpo ] = useState< Expo >( _expo );
     useEffect( () => {
-        if (
+        const needsLoad =
             ( ( module === `Image` ) && ( _expo.Image === undefined ) ) ||
-            ( ( module === `Video` ) && ( _expo.Video === undefined ) )
-        ) {
-            requireExpoAv( module );
+            ( ( module === `Video` ) && ( _expo.VideoView === undefined ) );
+        if ( needsLoad ) {
+            requireExpoVideo( module );
             requireExpoImage( module );
-            if ( !_expo[ module ] ) {
+            const loaded = module === `Video` ? _expo.VideoView : _expo[ module ];
+            if ( !loaded ) {
                 logWarning( messageConfig[ module ] );
             }
-            setExpo( _expo );
+            setExpo( { ..._expo } );
         }
     }, [] );
     return expo;
