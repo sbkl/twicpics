@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "experimentalDecorators": true,
+        "jsx": "react",
+        "lib": [ "dom", "es2020" ],
+        "declarationDir": "./dts",
+        "sourceMap": true,
+        "strict": true,
+        "strictNullChecks": false,
+        "types": [
+          "node",
+          "vue-typescript-import-dts"
+        ],
+        "preserveValueImports": false,
+        "importsNotUsedAsValues": "remove",
+        "verbatimModuleSyntax": true,
+        "module": "ES2022"
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "extends": "@tsconfig/svelte/tsconfig.json",
+    "include": [ "src/**/*" ]
+}

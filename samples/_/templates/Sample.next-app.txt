@@ -1,0 +1,20 @@
+/* eslint-disable react/react-in-jsx-scope */
+// /(\s)class="/g => "$1className=\""
+// /(\b)crossorigin(\b)/g => "crossOrigin"
+// /(\b)referrerpolicy(\b)/g => "referrerPolicy"
+// /(\b)transition=false(\b)/g => "transition='false'"
+// /(\b)transition=true(\b)/g => "transition='true'"
+// /(\b)tabindex(\b)/g => "tabIndex"
+// /style="width:200px"/g => "style={{ width: '200px' }}"
+// /___state___/g => ""
+// /___eager_true___/ => "eager={true}"
+// /___eager_false___/ => "eager={false}"
+import React from "react";
+import { TwicBackground, TwicImg, TwicPicture, TwicVideo, TwicView } from "@twicpics/components/react";
+const Sample = () => {
+    return (
+        ###
+    );
+}
+
+export default Sample;

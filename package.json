@@ -1,0 +1,148 @@
+{
+    "dependencies": {
+        "@angular/common": "16.1.4",
+        "@angular/core": "16.1.4",
+        "@nuxt/kit": "3.8.1",
+        "@rollup/plugin-node-resolve": "15.2.3",
+        "@rollup/plugin-terser": "0.4.4",
+        "@rollup/plugin-typescript": "11.1.5",
+        "@rollup/pluginutils": "5.0.5",
+        "@tsconfig/svelte": "5.0.2",
+        "@types/react": "18.2.37",
+        "@types/react-dom": "18.2.15",
+        "@types/react-native": "0.72.6",
+        "@vue/compiler-sfc": "3.3.4",
+        "expo": "49.0.17",
+        "expo-av": "13.10.5",
+        "expo-image": "1.10.6",
+        "fs-extra": "11.1.1",
+        "magic-string": "0.30.5",
+        "markdown-include": "0.4.3",
+        "next": "14.2.32",
+        "nuxt": "3.19.0",
+        "replace-in-file": "7.0.2",
+        "rollup": "3.29.3",
+        "rollup-plugin-banner2": "1.2.2",
+        "rollup-plugin-css-porter": "1.0.2",
+        "rollup-plugin-dts": "5.3.0",
+        "rollup-plugin-import-css": "3.3.5",
+        "rollup-plugin-svelte": "7.1.6",
+        "rollup-plugin-vue": "6.0.0",
+        "rollup-plugin-vue2": "0.8.1",
+        "svelte": "3.59.2",
+        "svelte-preprocess": "5.0.4",
+        "typescript": "5.2.2",
+        "uglify-js": "3.17.4",
+        "vue": "2.7.8",
+        "vue-template-compiler": "2.7.15",
+        "vue-typescript-import-dts": "4.0.0"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "6.7.2",
+        "@typescript-eslint/parser": "6.7.2",
+        "eslint": "8.50.0",
+        "eslint-config-creative-area": "0.11.1",
+        "eslint-plugin-react": "7.33.2",
+        "eslint-plugin-svelte3": "4.0.0",
+        "eslint-plugin-vue": "9.15.1",
+        "jsdom": "24.1.0",
+        "kill-port": "2.0.1",
+        "npm-run-all": "4.1.5",
+        "puppeteer": "22.12.0",
+        "vitest": "1.6.1"
+    },
+    "eslintConfig": {
+        "env": {
+            "browser": true
+        },
+        "extends": [
+            "eslint:recommended",
+            "creative-area/es2020/module"
+        ],
+        "overrides": [
+            {
+                "files": [
+                    "*.jsx",
+                    "*.svelte",
+                    "*.ts",
+                    "*.tsx",
+                    "*.vue"
+                ],
+                "extends": [
+                    "plugin:@typescript-eslint/eslint-recommended",
+                    "plugin:@typescript-eslint/recommended",
+                    "plugin:react/recommended",
+                    "plugin:vue/vue3-recommended",
+                    "creative-area/es2020/module"
+                ],
+                "rules": {
+                    "@typescript-eslint/no-shadow": [
+                        "error"
+                    ],
+                    "@typescript-eslint/no-unused-vars": [
+                        "error"
+                    ],
+                    "@typescript-eslint/no-use-before-define": [
+                        "error"
+                    ],
+                    "no-use-before-define": "off",
+                    "prefer-named-capture-group": "off",
+                    "vue/comment-directive": "off",
+                    "vue/multi-word-component-names": "off",
+                    "vue/html-indent": [
+                        "error",
+                        4
+                    ]
+                },
+                "settings": {
+                    "react": {
+                        "version": "18"
+                    }
+                }
+            }
+        ],
+        "parser": "vue-eslint-parser",
+        "parserOptions": {
+            "parser": "@typescript-eslint/parser"
+        },
+        "plugins": [
+            "@typescript-eslint"
+        ],
+        "rules": {
+            "prefer-named-capture-group": "off",
+            "new-cap": [
+                "error",
+                {
+                    "capIsNewExceptions": [
+                        "Directive",
+                        "HostBinding",
+                        "HostListener",
+                        "Injectable",
+                        "Input",
+                        "NgModule",
+                        "Output",
+                        "Pipe",
+                        "ViewChild",
+                        "ViewChildren",
+                        "Component"
+                    ]
+                }
+            ]
+        }
+    },
+    "license": "MIT",
+    "resolutions": {
+        "vue-template-compiler": "2.7.8"
+    },
+    "scripts": {
+        "build": "$npm_execpath install && node build/documentation.js && node build",
+        "documentation": "node build/documentation.js",
+        "lint": "eslint .",
+        "postinstall": "node build/postinstall.js",
+        "test:common": "node tests/common/preTests.js && vitest run tests/common/tmp; node tests/common/postTests.js",
+        "test:ui": "node tests/ui",
+        "test": "$npm_execpath run test:common && $npm_execpath run test:ui"
+    },
+    "type": "module",
+    "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
+}

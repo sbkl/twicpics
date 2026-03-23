@@ -1,0 +1,30 @@
+// /(\s)class="/g => "$1className=\""
+// /(\b)crossorigin(\b)/g => "crossOrigin"
+// /(\b)referrerpolicy(\b)/g => "referrerPolicy"
+// /(\b)transition=false(\b)/g => "transition='false'"
+// /(\b)transition=true(\b)/g => "transition='true'"
+// /(\b)tabindex(\b)/g => "tabIndex"
+// /style="width:200px"/g => "style={{ width: '200px' }}"
+// /___state___/g => "onStateChange={handleStateChange}"
+// /___eager_true___/ => "eager={true}"
+// /___eager_false___/ => "eager={false}"
+import React from "react";
+
+import { TwicBackground } from "@twicpics/components/react";
+import { TwicImg } from "@twicpics/components/react";
+import { TwicPicture } from "@twicpics/components/react";
+import { TwicVideo } from "@twicpics/components/react";
+import { TwicView } from "@twicpics/components/react";
+
+const Sample = () => {
+    
+    const handleStateChange = ( stateEvent ) => {
+        console.log( `React - TwicImg emits new stateEvent`, stateEvent );
+    }
+    
+    return (
+        ###
+    );
+}
+
+export default Sample;

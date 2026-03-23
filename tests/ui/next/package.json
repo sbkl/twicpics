@@ -1,0 +1,17 @@
+{
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ],
+    "dependencies": {
+        "@twicpics/components": "file:../../../dist",
+        "next": "16.0.8",
+        "react": "19.2.1",
+        "react-dom": "19.2.1"
+    },
+    "license": "MIT",
+    "scripts": {
+        "serve": "next"
+    }
+}

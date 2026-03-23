@@ -1,0 +1,17 @@
+{
+  "name": "vue3",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "serve": "vite"
+  },
+  "dependencies": {
+    "@twicpics/components": "file:../../../dist",
+    "vue": "3.5.11"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "5.1.4",
+    "vite": "5.4.8"
+  }
+}

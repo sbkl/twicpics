@@ -1,0 +1,20 @@
+
+// /___state___/g => "@stateChange='handleStateChange'"
+// /___eager_true___/ => "v-bind:eager='true'"
+// /___eager_false___/ => "v-bind:eager='false'"
+<template>
+    ###
+</template>
+
+<script>
+export default {
+  name: 'AppHeader',
+  methods : {
+    handleStateChange( state ) {
+        console.log( `Vue - TwicImg emits new state`, state );
+    }
+  },
+};
+</script>
+
+<style src="./Sample.css" />

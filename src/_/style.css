@@ -1,0 +1,142 @@
+
+/* ISOLATION */
+.twic-i {
+    overflow: hidden;
+}
+/* WRAPPER AND ITS CHILDREN */
+.twic-w, .twic-w * {
+    /* constants */
+    border: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+/* WRAPPER */
+.twic-w {
+    /* constants */
+    overflow: hidden;
+    position: relative;
+    /* defaults */
+    padding-top: 100%;
+    width: 100%;
+    /* variables */
+    padding-top: calc( 100% / var( --twic-ratio, 1 ) );
+}
+
+.twic-w > * {
+    /* constants */
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    transition-property: opacity, transform;
+    will-change: opacity, transform;
+    /* defaults */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    object-position: center;
+    transition-delay: 0s;
+    transition-duration: 400ms;
+    transition-timing-function: ease;
+    /* variables */
+    object-fit: var( --twic-mode, cover );
+    object-position: var( --twic-position, center );
+    transition-delay: var( --twic-transition-delay, 0s );
+    transition-duration: var( --twic-transition-duration, 400ms );
+    transition-timing-function: var( --twic-transition-timing-function, ease );
+}
+
+/* PLACEHOLDER */
+.twic-w > div {
+    /* constants */
+    background-repeat: no-repeat;
+    /* defaults */
+    background-size: cover;
+    background-position: center;
+    /* variables */
+    background-size: var( --twic-mode, cover );
+    background-position: var( --twic-position, center );
+    /* trick to get ratio easily */
+    font-size: calc( 1px / var( --twic-ratio, 1 ) );
+}
+
+.twic-w > img[src=""], .twic-w > img:not([src]) {
+    visibility: hidden;
+}
+
+.twic-w.twic-tz > img {
+    transform: scale( 0 );
+}
+
+.twic-w.twic-tf > div {
+    opacity: 1;
+}
+
+/* MAKES ANGULAR COMPONENT WRAPPER BEHAVES LIKE A DIV */
+.twic-d {
+    display: block;
+}
+
+/* OFFLINE PLACEHOLDERS AND ITS CHILDREN */
+.twic-offline {
+    background-color: #CCCCCC;
+}
+
+.twic-offline.twic-nosrc {
+    background-color: #FD0016;
+}
+
+.twic-offline > * {
+    display: none;
+}
+
+/** MAGNIFIER */
+:root {
+    --twic-zoom: 0;
+}
+.twic-z {
+    position: relative;
+}
+.twic-m {
+    left:0;
+    position: absolute;
+    top:0;
+    z-index: 1;
+}
+.twic-m > *{
+    display:none;
+    transition: none;
+    /* variables */
+    width: calc( max( var( --twic-zoom ), 1 ) * 100% );
+    height: calc( max( var( --twic-zoom ), 1 ) * 100% );
+    transform: translate3d(
+        calc( ( 1 - max( var( --twic-zoom ), 1 ) ) * var( --twic-xr, 0) * 1px ),
+        calc( ( 1 - max( var( --twic-zoom ), 1 ) ) * var( --twic-yr, 0) * 1px ),
+        0
+    );
+}
+.twic-m:hover > *{
+    display: block;
+}
+.twic-m:hover + div, twicmedia:hover + twicmedia {
+    opacity: 0;
+}
+
+.twic-p {
+    border: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.twic-p > img {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    width:100%;
+    height:100%;
+}

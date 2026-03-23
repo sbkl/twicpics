@@ -1,0 +1,12 @@
+/samples/**/.cache
+/samples/**/.next
+/samples/**/.nuxt
+/samples/**/build
+/samples/**/polyfills.ts
+/samples/**/Sample.svelte
+/samples/next-app-router
+/samples/next-page-router
+/samples/sveltekit
+/samples/gatsby/public
+/tests
+dist

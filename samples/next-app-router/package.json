@@ -1,0 +1,24 @@
+{
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ],
+    "dependencies": {
+        "@twicpics/components": "file:../../dist",
+        "@twicpics/components-sample": "file:../_",
+        "@types/node": "24.10.2",
+        "@types/react": "19.2.7",
+        "@types/react-dom": "19.2.3",
+        "next": "16.0.8",
+        "react": "19.2.1",
+        "react-dom": "19.2.1",
+        "typescript": "5.9.3"
+    },
+    "license": "MIT",
+    "scripts": {
+        "copy": "node copySample.mjs ",
+        "dev": "$npm_execpath install && $npm_execpath run copy && next -p 3000",
+        "serve": "$npm_execpath install && $npm_execpath run copy && next build && next start"
+    }
+}

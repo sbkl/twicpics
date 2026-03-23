@@ -1,0 +1,21 @@
+{
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not dead"
+    ],
+    "dependencies": {
+        "@twicpics/components": "file:../../dist",
+        "@twicpics/components-sample": "file:../_",
+        "next": "16.0.8",
+        "next-transpile-modules": "10.0.1",
+        "react": "19.2.1",
+        "react-dom": "19.2.1"
+    },
+    "license": "MIT",
+    "scripts": {
+        "build": "$npm_execpath install && next export",
+        "dev": "$npm_execpath install && next -p 3000",
+        "serve": "$npm_execpath install && next build && next start -p 3000"
+    }
+}

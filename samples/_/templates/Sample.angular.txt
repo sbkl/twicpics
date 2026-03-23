@@ -1,0 +1,4 @@
+// /___state___/g => "(stateChangeEvent)='onStateChange($event)'"
+// /___eager_true___/ => "[eager]='true'"
+// /___eager_false___/ => "[eager]='false'"
+###

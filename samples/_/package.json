@@ -1,0 +1,18 @@
+{
+    "dependencies": {
+        "@twicpics/components": "file:../../dist"
+    },
+    "exports": {
+        "./Sample.css": "./Sample.css",
+        "./Sample.jsx": "./Sample.jsx",
+        "./Sample.svelte": "./Sample.svelte",
+        "./Sample.vue": "./Sample.vue",
+        "./fakeServer.js": "./fakeServer.js"
+    },
+    "name": "@twicpics/components-sample",
+    "private": true,
+    "scripts": {
+        "preinstall": "node preinstall"
+    },
+    "version": "0.1.0"
+}

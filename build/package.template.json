@@ -1,0 +1,29 @@
+{
+    "author": "TwicPics <hello@twic.pics> (https://www.twicpics.com)",
+    "bugs": {
+        "url": "https://github.com/twicpics/components/issues"
+    },
+    "description": "A Web component library that brings the power of TwicPics to your favorite web framework.",
+    "homepage": "https://github.com/twicpics/components",
+    "keywords": [
+        "angular",
+        "component library",
+        "gatsby js",
+        "next js",
+        "nuxt js",
+        "react",
+        "responsive image",
+        "svelte",
+        "sveltekit",
+        "twicpics",
+        "ui library",
+        "vue js"
+    ],
+    "license": "MIT",
+    "name": "@twicpics/components",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/twicpics/components.git"
+    },
+    "version": "0.33.0"
+}
